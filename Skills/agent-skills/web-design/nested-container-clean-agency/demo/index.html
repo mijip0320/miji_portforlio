@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squish — Turn Your Ideas Into Stunning Visuals</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500&family=Inter:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="m-0 min-h-screen overflow-x-hidden bg-[#0a3bbf]" style="font-family:Inter,sans-serif;">
+
+  <!-- Background WebGL canvas -->
+  <canvas id="gl" class="fixed inset-0 w-full h-full -z-10" style="pointer-events:none;"></canvas>
+
+  <!-- Dot grid overlay -->
+  <div class="fixed inset-0 -z-10" style="pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);background-size:26px 26px;opacity:0.18;"></div>
+
+  <!-- Atmosphere gradient wash -->
+  <div class="fixed inset-0 -z-10" style="pointer-events:none;background:linear-gradient(to bottom, rgba(150,170,210,0.15) 0%, rgba(40,90,220,0.05) 45%, rgba(20,55,180,0.55) 100%);"></div>
+
+  <main class="relative min-h-screen flex flex-col" style="z-index:10;">
+
+    <!-- Navigation -->
+    <header class="w-full px-6 sm:px-10 lg:px-14 py-6 flex items-center justify-between">
+      <a href="#" class="text-white text-3xl" style="font-family:Pacifico,cursive;letter-spacing:0.5px;">Squish</a>
+
+      <nav class="hidden md:flex items-center gap-9 text-white">
+        <a href="#" class="text-sm font-medium hover:opacity-80 transition-opacity duration-150">Product</a>
+        <a href="#" class="text-sm font-medium hover:opacity-80 transition-opacity duration-150">Presets</a>
+        <a href="#" class="text-sm font-medium hover:opacity-80 transition-opacity duration-150">Pricing</a>
+        <a href="#" class="text-sm font-medium hover:opacity-80 transition-opacity duration-150">Blog</a>
+        <a href="#" class="bg-white text-[#1a2440] text-sm font-semibold px-6 py-2.5 rounded-xl hover:scale-[1.03] transition-transform duration-150 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">Contact</a>
+      </nav>
+
+      <button id="menuBtn" class="md:hidden text-white" aria-label="Open menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" width="28" height="28"></iconify-icon>
+      </button>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-4 flex-col gap-3 text-white">
+      <a href="#" class="text-sm font-medium py-1.5">Product</a>
+      <a href="#" class="text-sm font-medium py-1.5">Presets</a>
+      <a href="#" class="text-sm font-medium py-1.5">Pricing</a>
+      <a href="#" class="text-sm font-medium py-1.5">Blog</a>
+      <a href="#" class="bg-white text-[#1a2440] text-sm font-semibold px-6 py-2.5 rounded-xl text-center mt-1">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="flex-1 flex items-end">
+      <div class="w-full px-6 sm:px-10 lg:px-14 pb-16 lg:pb-24 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+
+        <!-- Left copy -->
+        <div class="max-w-2xl">
+          <h1 class="text-white" style="font-family:Newsreader,serif;font-weight:400;letter-spacing:-0.025em;line-height:1.02;">
+            <span class="block overflow-hidden">
+              <span class="reveal-line block text-5xl sm:text-6xl lg:text-7xl">Turn Your Ideas Into</span>
+            </span>
+            <span class="block overflow-hidden mt-1">
+              <span class="reveal-line block text-5xl sm:text-6xl lg:text-7xl">Stunning Visuals</span>
+            </span>
+          </h1>
+
+          <p class="reveal-fade mt-7 text-white/90 text-base sm:text-lg max-w-md" style="font-weight:300;line-height:1.6;">
+            An AI tool that turns prompts into quality images for branding and product design.
+          </p>
+
+          <a href="#" class="reveal-fade inline-flex items-center gap-2 mt-9 bg-white text-[#1a2440] text-base font-semibold px-7 py-4 rounded-2xl hover:scale-[1.03] transition-transform duration-150 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+            Create your first image
+          </a>
+        </div>
+
+        <!-- Right social proof -->
+        <div class="reveal-fade flex flex-col items-start lg:items-end gap-2 text-white">
+          <div class="flex items-center gap-1 text-yellow-300">
+            <iconify-icon icon="solar:star-bold" width="16" height="16"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="16" height="16"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="16" height="16"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="16" height="16"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="16" height="16"></iconify-icon>
+          </div>
+          <p class="text-sm font-semibold">3k+ creators</p>
+          <div class="flex -space-x-3 mt-1">
+            <img src="assets/page-01-2f563338-39fa-47ea-9761-658d4f3f84db-1600w.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="Creator">
+            <img src="assets/page-02-4f5668c5-fc4a-44e0-bc5e-a664189d3c31-1600w.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="Creator">
+            <img src="assets/page-03-77415a2e-dcbc-4748-a29d-fced4821881a-1600w.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="Creator">
+            <img src="assets/page-04-c92852bb-a510-405a-85ab-ffa0fde136a4-1600w.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="Creator">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', function () {
+      var m = document.getElementById('mobileMenu');
+      m.classList.toggle('hidden');
+      m.classList.toggle('flex');
+    });
+
+    // ---- Masked reveal animation ----
+    window.addEventListener('load', function () {
+      var lines = document.querySelectorAll('.reveal-line');
+      lines.forEach(function (el, i) {
+        el.style.transform = 'translateY(110%)';
+        el.style.transition = 'transform 1s cubic-bezier(0.16,1,0.3,1)';
+        el.style.transitionDelay = (0.15 + i * 0.12) + 's';
+      });
+      var fades = document.querySelectorAll('.reveal-fade');
+      fades.forEach(function (el, i) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+        el.style.filter = 'blur(6px)';
+        el.style.transition = 'opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease';
+        el.style.transitionDelay = (0.5 + i * 0.12) + 's';
+      });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          lines.forEach(function (el) { el.style.transform = 'translateY(0%)'; });
+          fades.forEach(function (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.style.filter = 'blur(0)';
+          });
+        });
+      });
+    });
+
+    // ---- WebGL floral bloom background ----
+    (function () {
+      var canvas = document.getElementById('gl');
+      var gl = canvas.getContext('webgl');
+      if (!gl) return;
+
+      var vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+
+      var fs = [
+        'precision highp float;',
+        'uniform vec2 u_res;',
+        'uniform float u_time;',
+        'uniform vec2 u_mouse;',
+        'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+        'float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.0-2.0*f);',
+        ' float a=hash(i);float b=hash(i+vec2(1.0,0.0));float c=hash(i+vec2(0.0,1.0));float d=hash(i+vec2(1.0,1.0));',
+        ' return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);}',
+        'float fbm(vec2 p){float v=0.0;float a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
+        'void main(){',
+        ' vec2 uv=gl_FragCoord.xy/u_res.xy;',
+        ' vec2 st=uv;st.x*=u_res.x/u_res.y;',
+        // base sky gradient: lighter top, deeper blue bottom
+        ' vec3 top=vec3(0.62,0.70,0.86);',
+        ' vec3 mid=vec3(0.30,0.52,0.92);',
+        ' vec3 bot=vec3(0.05,0.23,0.72);',
+        ' vec3 col=mix(top,mid,smoothstep(0.0,0.55,uv.y));',
+        ' col=mix(bot,col,smoothstep(0.0,0.7,uv.y));',
+        // flower center
+        ' vec2 c=vec2(0.55,0.58);',
+        ' c.x*=u_res.x/u_res.y;',
+        ' vec2 d=st-c;',
+        ' float ang=atan(d.y,d.x);',
+        ' float rad=length(d);',
+        // petal modulation
+        ' float t=u_time*0.15;',
+        ' float petals=0.5+0.5*sin(ang*7.0+sin(rad*6.0-t)*1.4);',
+        ' float bloom=smoothstep(0.42,0.0,rad)*petals;',
+        ' float warp=fbm(d*4.0+t*0.5)*0.6;',
+        ' bloom+=smoothstep(0.30,0.0,rad)*warp;',
+        // soft cloudy structure
+        ' float cloud=fbm(d*3.0+vec2(t*0.3,t*0.2));',
+        ' bloom*= (0.7+0.5*cloud);',
+        // petal color: pink/purple outer, orange core
+        ' vec3 petalA=vec3(0.78,0.55,0.92);',
+        ' vec3 petalB=vec3(0.98,0.50,0.30);',
+        ' vec3 core=vec3(1.0,0.62,0.25);',
+        ' vec3 flower=mix(petalA,petalB,smoothstep(0.25,0.02,rad));',
+        ' flower=mix(flower,core,smoothstep(0.10,0.0,rad));',
+        ' col=mix(col,flower,clamp(bloom*1.3,0.0,0.92));',
+        // subtle glow halo
+        ' col+=vec3(0.5,0.45,0.6)*smoothstep(0.5,0.1,rad)*0.10;',
+        // breathing pulse
+        ' col*= (0.97+0.03*sin(u_time*0.6));',
+        // mouse drift highlight
+        ' float md=length(uv-u_mouse);',
+        ' col+=vec3(0.2,0.25,0.4)*smoothstep(0.5,0.0,md)*0.05;',
+        ' gl_FragColor=vec4(col,1.0);',
+        '}'
+      ].join('\n');
+
+      function compile(type, src) {
+        var s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+      var prog = gl.createProgram();
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, vs));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+
+      var buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(prog, 'p');
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+      var uRes = gl.getUniformLocation(prog, 'u_res');
+      var uTime = gl.getUniformLocation(prog, 'u_time');
+      var uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+      var mouse = [0.55, 0.5], target = [0.55, 0.5];
+
+      function resize() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      window.addEventListener('mousemove', function (e) {
+        target[0] = e.clientX / window.innerWidth;
+        target[1] = 1.0 - e.clientY / window.innerHeight;
+      });
+
+      var start = Date.now();
+      function render() {
+        mouse[0] += (target[0] - mouse[0]) * 0.04;
+        mouse[1] += (target[1] - mouse[1]) * 0.04;
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uTime, (Date.now() - start) / 1000);
+        gl.uniform2f(uMouse, mouse[0], mouse[1]);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+  </script>
+
+</body>
+</html>

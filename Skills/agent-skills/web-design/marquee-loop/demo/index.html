@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        /* Grain overlay for images to match reference texture */
+        .texture-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        /* Subtle diagonal background lines for Framed Grid Layout */
+        .bg-diagonal {
+            background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 10px);
+        }
+
+        /* Seamless infinite marquee loop */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#e7e7e7] bg-diagonal min-h-screen flex items-center justify-center p-6 md:p-12 antialiased text-zinc-900 font-sans selection:bg-zinc-300 selection:text-black">
+
+    <!-- Framed Grid Layout Container -->
+    <main class="relative w-full max-w-7xl mx-auto border border-zinc-300/60 p-6 md:p-10 bg-[#e7e7e7]/50 backdrop-blur-sm">
+        
+        <!-- L-shaped corner brackets -->
+        <div class="absolute -top-[1px] -left-[1px] w-5 h-5 border-t-2 border-l-2 border-zinc-400"></div>
+        <div class="absolute -top-[1px] -right-[1px] w-5 h-5 border-t-2 border-r-2 border-zinc-400"></div>
+        <div class="absolute -bottom-[1px] -left-[1px] w-5 h-5 border-b-2 border-l-2 border-zinc-400"></div>
+        <div class="absolute -bottom-[1px] -right-[1px] w-5 h-5 border-b-2 border-r-2 border-zinc-400"></div>
+
+        <!-- Marquee Header -->
+        <div class="border-b border-zinc-300/60 mb-6 md:mb-10 pb-4 overflow-hidden relative flex select-none">
+            <div class="animate-marquee flex whitespace-nowrap">
+                <!-- Group 1 -->
+                <div class="flex items-center gap-8 px-4 text-xs uppercase tracking-widest text-zinc-500 font-normal">
+                    <span>lumina.studio</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>digital architecture</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>user experience</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>visual systems</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>lumina.studio</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>digital architecture</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>user experience</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>visual systems</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                </div>
+                <!-- Group 2 (Duplicate for seamless loop) -->
+                <div class="flex items-center gap-8 px-4 text-xs uppercase tracking-widest text-zinc-500 font-normal">
+                    <span>lumina.studio</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>digital architecture</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>user experience</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>visual systems</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>lumina.studio</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>digital architecture</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>user experience</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                    <span>visual systems</span>
+                    <div class="w-1 h-1 rounded-full bg-zinc-300"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+
+            <!-- Card 1 (Previously Card 3) -->
+            <div class="relative rounded-2xl bg-gradient-to-b from-white/10 to-transparent p-[1px] shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+                <div class="flex h-full flex-col overflow-hidden rounded-[15px] bg-[#111111]">
+                    <div class="relative h-64 w-full md:h-72 shrink-0">
+                        <img src="assets/page-01-6b97b0cc-6b81-4451-aacc-6b928e7d0a69-3840w.jpg" alt="Coastline landscape" class="h-full w-full object-cover grayscale contrast-[1.2] brightness-75">
+                        <div class="absolute inset-0 texture-overlay mix-blend-overlay"></div>
+                        
+                        <!-- Overlay: UI Card -->
+                        <div class="absolute inset-0 flex items-center justify-center p-6">
+                            <div class="w-full max-w-[260px] rounded-xl bg-white p-4 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] ring-1 ring-black/5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-sm font-medium tracking-tight text-zinc-900">Product &amp; App</span>
+                                    <div class="flex gap-0.5 opacity-40">
+                                        <div class="w-[3px] h-[3px] rounded-full bg-black"></div>
+                                        <div class="w-[3px] h-[3px] rounded-full bg-black"></div>
+                                        <div class="w-[3px] h-[3px] rounded-full bg-black"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4 rounded-lg bg-zinc-100/80 p-3 ring-1 ring-black/5">
+                                    <div class="flex items-center justify-between text-xs text-zinc-400 mb-2">
+                                        <div class="flex items-center gap-1.5 font-normal">
+                                            <iconify-icon icon="solar:clock-circle-linear" class="text-sm"></iconify-icon>
+                                            Project process
+                                        </div>
+                                        <span class="font-medium text-zinc-900">92%</span>
+                                    </div>
+                                    <div class="h-1.5 w-full rounded-full bg-zinc-200 overflow-hidden">
+                                        <div class="h-full w-[92%] bg-zinc-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col gap-2 pt-1 text-xs">
+                                    <div class="text-zinc-400 font-normal">Updates</div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-zinc-400">Last</span>
+                                        <span class="font-normal text-zinc-900">Oct 04, 2025</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-zinc-400">Next</span>
+                                        <span class="font-normal text-zinc-900">Oct 09, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col justify-between p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <div class="h-2.5 w-[2px] bg-zinc-400"></div>
+                                <span class="text-xs uppercase tracking-wider text-zinc-400 font-normal">Research · Design · Build · Launch</span>
+                            </div>
+                            <h2 class="gs-reveal mt-5 text-xl md:text-2xl font-medium tracking-tight text-white leading-[1.15]">
+                                Your product is your promise. Ensure it delivers on every interaction.
+                            </h2>
+                            <p class="mt-4 text-xs md:text-sm text-zinc-400 leading-relaxed font-light pr-4">
+                                We engineer platforms that perform flawlessly when the stakes are highest.
+                            </p>
+                        </div>
+                        <div class="mt-8 text-xs text-zinc-600 font-normal">lumina.studio</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 (Previously Card 1) -->
+            <div class="relative rounded-2xl bg-gradient-to-b from-white/10 to-transparent p-[1px] shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+                <div class="flex h-full flex-col overflow-hidden rounded-[15px] bg-[#111111]">
+                    <div class="relative h-64 w-full md:h-72 shrink-0">
+                        <img src="assets/page-02-193e1472-0514-44eb-893a-1376091263f3-3840w.jpg" alt="Rugged landscape" class="h-full w-full object-cover grayscale contrast-[1.2] brightness-75">
+                        <div class="absolute inset-0 texture-overlay mix-blend-overlay"></div>
+                        
+                        <!-- Overlay: Avatars -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="flex -space-x-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] rounded-full p-1 bg-white/5 backdrop-blur-sm">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-[#111] grayscale object-cover" src="assets/page-03-5180d964-2425-4134-8220-c1528af09124-800w.jpg" alt="Avatar">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-[#111] grayscale object-cover" src="assets/page-04-4f5668c5-fc4a-44e0-bc5e-a664189d3c31-1600w.jpg" alt="Avatar">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-[#111] grayscale object-cover" src="assets/page-05-fbddf75f-e2e3-4552-a710-55e2a5f4d6af-800w.jpg" alt="Avatar">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-[#111] grayscale object-cover" src="assets/page-06-16d38370-5873-45cf-bab1-60a7b923dc6e-800w.jpg" alt="Avatar">
+                                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#e7e7e7] ring-2 ring-[#111] text-xs font-medium tracking-tight text-black">40+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col justify-between p-6 md:p-8">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <div class="h-2.5 w-[2px] bg-zinc-400"></div>
+                                <span class="text-xs uppercase tracking-wider text-zinc-400 font-normal">Crafted with precision. Shipped with confidence.</span>
+                            </div>
+                            <h2 class="gs-reveal mt-5 text-xl md:text-2xl font-medium tracking-tight text-white leading-[1.15]">
+                                Chosen by visionaries who demand excellence in every pixel.
+                            </h2>
+                            <p class="mt-4 text-xs md:text-sm text-zinc-400 leading-relaxed font-light pr-4">
+                                Brilliant idea. Execution that falls short. We bridge that gap and ensure it stays closed.
+                            </p>
+                        </div>
+                        <div class="mt-8 text-xs text-zinc-600 font-normal">lumina.studio</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 (Previously Card 2) -->
+            <div class="relative rounded-2xl bg-gradient-to-b from-white/10 to-transparent p-[1px] shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+                <div class="flex h-full flex-col overflow-hidden rounded-[15px] bg-[#111111]">
+                    <div class="relative h-64 w-full md:h-72 shrink-0">
+                        <img src="assets/page-07-8e802a98-b83c-4c5d-99d1-e24406eb4ec9-3840w.jpg" alt="Vast landscape" class="h-full w-full object-cover grayscale contrast-[1.2] brightness-90">
+                        <div class="absolute inset-0 texture-overlay mix-blend-overlay opacity-70"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col justify-between p-6 md:p-8">
+                        <div class="mt-8">
+                            <h2 class="gs-reveal text-xl md:text-2xl font-medium tracking-tight text-white leading-[1.15]">
+                                The engine powering the experience.
+                            </h2>
+                            <p class="mt-4 text-xs md:text-sm text-zinc-400 leading-relaxed font-light pr-4">
+                                Digital architecture, user experience, and visual systems built from the ground up. Unified and deliberate.
+                            </p>
+                        </div>
+                        <div class="mt-8 text-xs text-zinc-600 font-normal opacity-0 select-none">lumina.studio</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const revealElements = document.querySelectorAll(".gs-reveal");
+
+            revealElements.forEach((elem) => {
+                const text = elem.innerText;
+                elem.innerHTML = "";
+                
+                // Split text by words
+                const words = text.split(" ");
+                
+                words.forEach((word, index) => {
+                    // Create outer mask container
+                    const wordWrapper = document.createElement("span");
+                    wordWrapper.style.display = "inline-block";
+                    wordWrapper.style.overflow = "hidden";
+                    wordWrapper.style.verticalAlign = "top";
+                    
+                    // Create inner animated span
+                    const wordSpan = document.createElement("span");
+                    wordSpan.style.display = "inline-block";
+                    wordSpan.style.transform = "translateY(100%)";
+                    wordSpan.style.opacity = "0";
+                    wordSpan.innerHTML = word;
+                    
+                    wordWrapper.appendChild(wordSpan);
+                    elem.appendChild(wordWrapper);
+
+                    // Add space after word unless it's the last one
+                    if (index < words.length - 1) {
+                        const space = document.createTextNode(" ");
+                        elem.appendChild(space);
+                    }
+                });
+
+                // Animate words
+                gsap.to(elem.querySelectorAll("span > span"), {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 90%",
+                    },
+                    y: "0%",
+                    opacity: 1,
+                    duration: 0.7,
+                    stagger: 0.02,
+                    ease: "power3.out"
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

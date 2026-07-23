@@ -1,16 +1,43 @@
 # miji_portforlio
 
-박미지(Miji Park) 프론트엔드 포트폴리오 사이트 저장소입니다.
+박미지(Miji Park) 프론트엔드 포트폴리오 사이트 + Cursor 스킬 워크스페이스입니다.
 
-## 현재 상태
+다른 컴퓨터에서도 같은 스킬/계획으로 작업할 수 있도록 MengTo Skills와 포트폴리오 계획 문서를 함께 포함합니다.
 
-- `docs/portfolio-site-plan.md` — 사이트 구성·콘텐츠 선별·구현 계획
+## 구조
 
-## 다음 단계
+```text
+miji_portforlio/
+  Skills/                 # MengTo/Skills 스냅샷 (원본 clone 내용)
+  .cursor/skills/         # Cursor가 읽는 스킬 심볼릭 링크 (상대 경로)
+  docs/                   # 포트폴리오 계획·스펙
+  scripts/link-skills.sh  # 스킬 링크 재생성
+  AGENTS.md               # 에이전트 작업 규칙
+```
 
-1. design-first UI 스펙 작성
-2. editorial-portfolio-chapters 기준으로 페이지 구현
-3. 배포
+## 다른 컴퓨터에서 시작
+
+```bash
+git clone https://github.com/mijip0320/miji_portforlio.git
+cd miji_portforlio
+./scripts/link-skills.sh   # 링크가 깨졌을 때만
+```
+
+Cursor에서 **이 폴더를 워크스페이스로 열기**.
+
+## 포트폴리오 계획
+
+- `docs/portfolio-site-plan.md`
+
+## 스킬 업데이트 (선택)
+
+upstream을 새로 받으려면:
+
+```bash
+rm -rf Skills
+git clone --depth 1 https://github.com/MengTo/Skills.git Skills
+./scripts/link-skills.sh
+```
 
 ## Contact
 

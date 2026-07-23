@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Capabilities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-[#0a2342] via-[#1a4b82] to-[#4682b4] relative min-h-screen flex flex-col overflow-x-hidden text-white selection:bg-white/20" style="font-family: 'Inter', sans-serif;">
+
+    <!-- Ambient Cloud Lights Background -->
+    <div id="cloud-1" class="fixed top-[-10%] left-[-20%] w-[80vw] h-[80vw] pointer-events-none mix-blend-screen z-0" style="background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%);"></div>
+    <div id="cloud-2" class="fixed bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] pointer-events-none mix-blend-screen z-0" style="background: radial-gradient(circle, rgba(160,200,255,0.2) 0%, rgba(255,255,255,0) 60%);"></div>
+    <div id="cloud-3" class="fixed top-[30%] left-[30%] w-[90vw] h-[60vw] pointer-events-none mix-blend-screen z-0" style="background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);"></div>
+
+    <!-- Structured Content Shell -->
+    <div class="relative w-full max-w-[1200px] mx-auto min-h-screen flex flex-col border-x border-white/10 px-4 md:px-8 lg:px-12 z-10 pt-4 pb-12">
+        
+        <!-- Tiny Corner Framing Markers -->
+        <div class="absolute top-0 left-[-2.5px] w-[4px] h-[4px] bg-white/40"></div>
+        <div class="absolute top-0 right-[-2.5px] w-[4px] h-[4px] bg-white/40"></div>
+        <div class="absolute bottom-0 left-[-2.5px] w-[4px] h-[4px] bg-white/40"></div>
+        <div class="absolute bottom-0 right-[-2.5px] w-[4px] h-[4px] bg-white/40"></div>
+
+        <!-- Header Section -->
+        <header class="w-full mb-10 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/10 pb-8">
+            <div class="flex flex-col gap-6">
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(255,255,255,0.05)]">
+                        <iconify-icon icon="solar:box-minimalistic-linear" width="22" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <span class="text-xl font-medium text-white tracking-tight">Nexus</span>
+                </div>
+                
+                <!-- Section Context -->
+                <div>
+                    <!-- Context Pill -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 shadow-[0_2px_10px_rgba(255,255,255,0.02)]">
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-300 animate-pulse shadow-[0_0_8px_rgba(147,197,253,0.8)]"></div>
+                        <span class="text-xs font-normal text-white/80 tracking-wide uppercase">Atmospheric Intelligence Engine</span>
+                    </div>
+
+                    <h1 class="text-3xl md:text-4xl font-medium text-white tracking-tight mb-4">
+                        <i class="font-serif font-light text-white/90">Platform</i> Capabilities
+                    </h1>
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+                        <span class="text-white/50 font-normal">Explore:</span>
+                        <a href="#" class="text-white/70 hover:text-white font-normal transition-colors">Integrations</a>
+                        <a href="#" class="text-white/70 hover:text-white font-normal transition-colors">Changelog</a>
+                        <a href="#" class="text-white/70 hover:text-white font-normal transition-colors">Pricing</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-5">
+                <a href="#" class="text-sm font-normal text-white/70 hover:text-white transition-colors">Log in</a>
+                
+                <!-- Translucent Premium Button -->
+                <div class="rounded-full p-[1px] bg-gradient-to-b from-white/40 to-white/10 shadow-[0_8px_16px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_24px_rgba(255,255,255,0.15)] transition-shadow duration-300">
+                    <a href="#" class="block bg-white/10 backdrop-blur-md hover:bg-white/20 text-white text-sm font-normal px-6 py-2.5 rounded-full transition-all">
+                        Start Building
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="flex-1 flex items-center justify-center w-full">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1: Universal Integration -->
+                <div class="bg-white/[0.03] backdrop-blur-md rounded-3xl p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] border border-white/10 flex flex-col group hover:bg-white/[0.06] transition-colors duration-500">
+                    <div class="h-[260px] bg-gradient-to-b from-white/5 to-transparent rounded-[20px] relative flex items-center justify-center overflow-hidden">
+                        <div class="absolute w-48 h-48 rounded-full border border-white/5"></div>
+                        <div class="absolute w-64 h-64 rounded-full border border-white/[0.02]"></div>
+                        
+                        <!-- Rotating Orbit System -->
+                        <div id="orbit-ring" class="absolute w-40 h-40 rounded-full border border-white/20 border-dashed flex items-center justify-center">
+                            <div class="absolute -top-3 -left-1 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/20 orbit-icon text-white flex items-center justify-center"><iconify-icon icon="solar:laptop-minimalistic-linear" width="14"></iconify-icon></div>
+                            <div class="absolute top-8 -right-3 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/20 orbit-icon text-white flex items-center justify-center"><iconify-icon icon="solar:code-linear" width="14"></iconify-icon></div>
+                            <div class="absolute -bottom-2 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/20 orbit-icon text-white flex items-center justify-center"><iconify-icon icon="solar:chat-round-line-linear" width="14"></iconify-icon></div>
+                            <div class="absolute bottom-6 -left-3 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/20 orbit-icon text-white flex items-center justify-center"><iconify-icon icon="solar:folder-with-files-linear" width="14"></iconify-icon></div>
+                        </div>
+
+                        <!-- Central Hub -->
+                        <div class="relative w-16 h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.1)] z-10">
+                            <div class="absolute inset-0 bg-white/20 rounded-full animate-ping" style="animation-duration: 3s;"></div>
+                            <iconify-icon icon="solar:microphone-2-linear" width="28" stroke-width="1.5"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="px-5 pt-4 pb-6 flex-1">
+                        <h3 class="text-lg font-normal text-white tracking-tight mb-2">Universal Compatibility</h3>
+                        <p class="text-sm font-extralight text-white/60 leading-[1.6]">Connects fluidly with every tool in your workflow, bridging minimal text editors and sophisticated environments.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ultra-Low Latency -->
+                <div class="bg-white/[0.03] backdrop-blur-md rounded-3xl p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] border border-white/10 flex flex-col group hover:bg-white/[0.06] transition-colors duration-500">
+                    <div class="h-[260px] bg-gradient-to-b from-white/5 to-transparent rounded-[20px] relative flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Floating Tags -->
+                        <div class="absolute top-6 flex items-center gap-1.5 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full shadow-[0_2px_8px_rgba(255,255,255,0.05)] border border-white/20" id="float-tag-1">
+                            <iconify-icon icon="solar:bolt-linear" width="12" class="text-white"></iconify-icon>
+                            <span class="text-xs font-normal text-white/90 uppercase tracking-wider">Instant Processing</span>
+                        </div>
+
+                        <div class="absolute bottom-8 left-10 flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 rounded-xl border border-white/20">
+                            <iconify-icon icon="solar:clock-circle-linear" width="16" class="text-white"></iconify-icon>
+                            <div class="flex items-baseline gap-0.5">
+                                <span class="text-lg font-normal text-white">0.02</span>
+                                <span class="text-xs font-extralight text-white/50">sec</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-8 right-10 flex flex-col items-end gap-0.5">
+                            <span class="text-xs font-normal text-white/80 uppercase tracking-wider">Real-Time</span>
+                            <span class="text-xs font-normal text-white/80 uppercase tracking-wider">Latency</span>
+                        </div>
+
+                        <!-- Waveform Animation -->
+                        <div class="flex items-center gap-1.5 h-20 w-48 justify-center">
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                            <div class="wave-bar w-2 bg-gradient-to-t from-white to-white/30 rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="px-5 pt-4 pb-6 flex-1">
+                        <h3 class="text-lg font-normal text-white tracking-tight mb-2">Ultra-Low Latency</h3>
+                        <p class="text-sm font-extralight text-white/60 leading-[1.6]">Enjoy instantaneous response times that match your pace of thought, maintaining momentum without delay.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Smart Structuring -->
+                <div class="bg-white/[0.03] backdrop-blur-md rounded-3xl p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] border border-white/10 flex flex-col group hover:bg-white/[0.06] transition-colors duration-500">
+                    <div class="h-[260px] bg-gradient-to-b from-white/5 to-transparent rounded-[20px] relative flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Document UI -->
+                        <div class="w-[200px] bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-4 relative overflow-hidden z-10" style="transform: translateY(-10px);">
+                            <h4 class="text-xs font-normal text-white mb-3 flex items-center gap-1">Meeting Notes: <span class="text-white/80 font-serif italic">Project Alpha</span></h4>
+                            
+                            <div class="space-y-2 relative">
+                                <div class="flex items-start gap-1.5">
+                                    <div class="w-1 h-1 rounded-full bg-white/40 mt-1.5"></div>
+                                    <div class="h-2 w-24 bg-white/20 rounded mt-1"></div>
+                                </div>
+                                <div class="flex items-start gap-1.5">
+                                    <div class="w-1 h-1 rounded-full bg-white/40 mt-1.5"></div>
+                                    <div class="h-2 w-20 bg-white/20 rounded mt-1"></div>
+                                </div>
+                                <div class="flex items-start gap-1.5 relative z-20">
+                                    <div class="w-1 h-1 rounded-full bg-white/40 mt-1.5"></div>
+                                    <div class="text-xs font-extralight text-white/70 leading-none">Need to hire 2 engineers.</div>
+                                </div>
+                            </div>
+
+                            <!-- Scanning highlight line -->
+                            <div id="doc-scanner" class="absolute left-0 right-0 h-8 bg-gradient-to-b from-white/0 via-white/10 to-white/30 border-b border-white/40 z-10 pointer-events-none" style="top: 0px;"></div>
+                        </div>
+
+                        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs font-extralight text-white/30 space-y-1 text-center w-full">
+                            <p>action items</p>
+                            <p>review design mocks</p>
+                            <p>update marketing copy</p>
+                            <p>schedule team sync</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pt-4 pb-6 flex-1">
+                        <h3 class="text-lg font-normal text-white tracking-tight mb-2">Smart Structuring</h3>
+                        <p class="text-sm font-extralight text-white/60 leading-[1.6]">Intelligently processes formatting and structural syntax in real-time, leaving you free to focus on ideation.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Custom Vocabulary -->
+                <div class="bg-white/[0.03] backdrop-blur-md rounded-3xl p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] border border-white/10 flex flex-col group hover:bg-white/[0.06] transition-colors duration-500">
+                    <div class="h-[260px] bg-gradient-to-b from-white/5 to-transparent rounded-[20px] relative flex items-center justify-center overflow-hidden">
+                        
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="gradWhite" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+                                    <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M50,50 C30,40 25,35 25,25" stroke="url(#gradWhite)" stroke-width="0.5" fill="none" />
+                            <path d="M50,50 C70,40 75,35 75,25" stroke="url(#gradWhite)" stroke-width="0.5" fill="none" />
+                            <path d="M50,50 C50,70 50,75 50,85" stroke="url(#gradWhite)" stroke-width="0.5" fill="none" />
+                        </svg>
+
+                        <!-- Nodes -->
+                        <div class="absolute top-10 left-12 bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 flex items-center gap-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <span class="text-xs font-normal text-white">Jargon</span>
+                        </div>
+                        
+                        <div class="absolute top-10 right-12 bg-white/5 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                            <span class="text-xs font-normal text-white">Nickname</span>
+                        </div>
+
+                        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 flex items-center gap-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <span class="text-xs font-normal text-white">Acronym</span>
+                        </div>
+
+                        <!-- Central Hub -->
+                        <div class="relative w-14 h-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-[14px] shadow-[0_8px_20px_rgba(255,255,255,0.1)] flex items-center justify-center text-white z-10" id="pulse-hub">
+                            <iconify-icon icon="solar:scanner-linear" width="24" stroke-width="1.5"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="px-5 pt-4 pb-6 flex-1">
+                        <h3 class="text-lg font-normal text-white tracking-tight mb-2">Custom Vocabulary</h3>
+                        <p class="text-sm font-extralight text-white/60 leading-[1.6]">Adapt the system to your precise professional vocabulary, specialized acronyms, and internal team phrasing.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Enterprise Security -->
+                <div class="bg-white/[0.03] backdrop-blur-md rounded-3xl p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] border border-white/10 flex flex-col group hover:bg-white/[0.06] transition-colors duration-500">
+                    <div class="h-[260px] bg-gradient-to-b from-white/5 to-transparent rounded-[20px] relative flex items-center justify-center overflow-hidden [perspective:1000px]">
+                        
+                        <!-- 3D Floor Ripples -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12">
+                            <div class="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-[2px] border-white/10 rounded-full" style="transform: rotateX(70deg);"></div>
+                            <div class="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-[2px] border-white/20 rounded-full" style="transform: rotateX(70deg);"></div>
+                            <div class="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 rounded-full blur-md" style="transform: rotateX(70deg);"></div>
+                        </div>
+
+                        <!-- Floating Shield -->
+                        <div id="shield-icon" class="relative z-10 w-20 h-20 flex items-center justify-center bg-gradient-to-br from-white/30 to-white/5 backdrop-blur-md text-white rounded-2xl shadow-[0_16px_32px_rgba(255,255,255,0.05)]" style="clip-path: polygon(50% 0%, 100% 20%, 100% 70%, 50% 100%, 0% 70%, 0% 20%);">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30"></div>
+                            <iconify-icon icon="solar:check-read-linear" width="32" stroke-width="2" class="relative z-20"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="px-5 pt-4 pb-6 flex-1">
+                        <h3 class="text-lg font-normal text-white tracking-tight mb-2">Enterprise Security</h3>
+                        <p class="text-sm font-extralight text-white/60 leading-[1.6]">All information remains locally encrypted and is strictly excluded from global model training procedures.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Multilingual Support -->
+                <div class="bg-white/[0.03] backdrop-blur-md rounded-3xl p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] border border-white/10 flex flex-col group hover:bg-white/[0.06] transition-colors duration-500">
+                    <div class="h-[260px] bg-gradient-to-b from-white/5 to-transparent rounded-[20px] relative flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Keyboard Grid Background -->
+                        <div class="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-2 p-8 opacity-40 pointer-events-none" style="transform: scale(1.2);">
+                            <div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div>
+                            <div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm opacity-0"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div>
+                            <div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div><div class="bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"></div>
+                        </div>
+
+                        <!-- Active Key -->
+                        <div class="relative z-10 w-24 h-24 bg-white/10 backdrop-blur-md rounded-2xl shadow-[0_12px_32px_rgba(255,255,255,0.05)] border border-white/20 flex flex-col items-center justify-center gap-3 transform transition-transform duration-300 hover:scale-105">
+                            <div class="w-6 h-6 rounded-full bg-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"></div>
+                            <span class="text-xs font-extralight text-white/80 tracking-widest">こんにちは</span>
+                        </div>
+                    </div>
+                    <div class="px-5 pt-4 pb-6 flex-1">
+                        <h3 class="text-lg font-normal text-white tracking-tight mb-2">Multilingual Support</h3>
+                        <p class="text-sm font-extralight text-white/60 leading-[1.6]">Instantly identify and translate across fifty distinct languages with deep contextual awareness and precision.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const start = Date.now();
+            
+            // Interaction Elements
+            const orbitRing = document.getElementById('orbit-ring');
+            const orbitIcons = document.querySelectorAll('.orbit-icon');
+            const waves = document.querySelectorAll('.wave-bar');
+            const scanner = document.getElementById('doc-scanner');
+            const shield = document.getElementById('shield-icon');
+            const ripples = document.querySelectorAll('.ripple');
+            const floatTag1 = document.getElementById('float-tag-1');
+            const pulseHub = document.getElementById('pulse-hub');
+
+            // Ambient Clouds
+            const cloud1 = document.getElementById('cloud-1');
+            const cloud2 = document.getElementById('cloud-2');
+            const cloud3 = document.getElementById('cloud-3');
+            
+            function animate() {
+                const t = (Date.now() - start) / 1000;
+
+                // Clouds Drift
+                if(cloud1) cloud1.style.transform = `translate(${Math.sin(t * 0.15) * 5}%, ${Math.cos(t * 0.1) * 5}%)`;
+                if(cloud2) cloud2.style.transform = `translate(${Math.cos(t * 0.12) * -4}%, ${Math.sin(t * 0.15) * 6}%)`;
+                if(cloud3) cloud3.style.transform = `translate(${Math.sin(t * 0.1) * 3}%, ${Math.cos(t * 0.1) * -3}%)`;
+                
+                // 1. Orbits
+                if(orbitRing) {
+                    orbitRing.style.transform = `rotate(${t * 15}deg)`;
+                    orbitIcons.forEach(icon => {
+                        icon.style.transform = `rotate(${-t * 15}deg)`;
+                    });
+                }
+                
+                // 2. Waveform
+                waves.forEach((wave, i) => {
+                    const h = 45 + Math.sin(t * 5 + i * 0.8) * 35;
+                    wave.style.height = `${h}%`;
+                });
+                if(floatTag1) {
+                    floatTag1.style.transform = `translateY(${Math.sin(t*2) * 4}px)`;
+                }
+                
+                // 3. Document Scanner
+                if(scanner) {
+                    const scanPos = (Math.sin(t * 1.5) + 1) / 2 * 60;
+                    scanner.style.top = `${scanPos}px`;
+                }
+
+                // 4. Hub Pulse
+                if(pulseHub) {
+                    pulseHub.style.transform = `scale(${1 + Math.sin(t * 3) * 0.02})`;
+                }
+
+                // 5. Shield & Ripples
+                if(shield) {
+                    shield.style.transform = `translateY(${Math.sin(t * 2.5) * 6}px)`;
+                }
+                ripples.forEach((ripple, i) => {
+                    const phase = (t * 0.6 - i * 0.4) % 1;
+                    const scale = phase < 0 ? 0 : 0.2 + phase * 1.5;
+                    const opacity = phase < 0 ? 0 : 1 - phase;
+                    ripple.style.transform = `rotateX(70deg) scale(${scale})`;
+                    ripple.style.opacity = opacity * 0.6;
+                });
+
+                requestAnimationFrame(animate);
+            }
+            
+            requestAnimationFrame(animate);
+        });
+    </script>
+</body>
+</html>

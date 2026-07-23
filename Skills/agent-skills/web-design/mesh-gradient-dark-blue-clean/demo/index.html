@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-zinc-200 min-h-screen flex items-center justify-center p-4 antialiased text-black" style="font-family: 'Inter', -apple-system, sans-serif; overflow: hidden;">
+
+    <!-- Device Frame -->
+    <div class="relative w-full max-w-[390px] h-[844px] bg-[#e4e4e2] rounded-[3.5rem] shadow-2xl overflow-hidden border-[8px] border-zinc-800 flex flex-col scale-[0.85] sm:scale-100 origin-center transition-transform duration-500">
+        
+        <!-- Status Bar -->
+        <div class="flex items-center justify-between px-7 pt-4 pb-2 text-xs font-medium z-20">
+            <span class="tracking-wider">9:41</span>
+            <!-- Dynamic Island Mock -->
+            <div class="w-32 h-7 bg-black rounded-full absolute left-1/2 -translate-x-1/2 top-3"></div>
+            <div class="flex gap-1.5 items-center">
+                <iconify-icon icon="solar:cellular-network-linear" class="text-sm"></iconify-icon>
+                <iconify-icon icon="solar:wifi-linear" class="text-sm"></iconify-icon>
+                <iconify-icon icon="solar:battery-charge-linear" class="text-base"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="px-7 pt-2 pb-6 flex items-center justify-between z-20">
+            <h1 class="text-3xl font-semibold tracking-tighter" style="letter-spacing: -0.05em;">Alerts</h1>
+            <iconify-icon icon="solar:alt-arrow-down-linear" class="text-xl"></iconify-icon>
+        </div>
+
+        <!-- Main Display -->
+        <div class="flex flex-col items-center justify-center z-20" id="main-time-container" style="opacity: 0; transform: translateY(10px);">
+            <div class="flex items-baseline justify-center font-light tracking-tighter" style="letter-spacing: -0.06em; line-height: 0.9;">
+                <span class="text-8xl text-black">07</span>
+                <span class="text-8xl text-[#949494]">:15</span>
+            </div>
+            <div class="mt-4 text-xs font-medium text-[#7a7a7a] tracking-wide">
+                The next alert rings in <span class="text-black font-semibold">2h 15m</span>
+            </div>
+        </div>
+
+        <!-- WebGL Visualization (Barcode) -->
+        <div class="mx-6 mt-8 h-40 bg-[#dbdbd8] rounded-2xl relative overflow-hidden shadow-inner z-10" id="barcode-container" style="opacity: 0;">
+            <canvas id="webgl-barcode" class="absolute inset-0 w-full h-full"></canvas>
+            <!-- Red Indicator Line -->
+            <div class="absolute inset-y-0 left-1/2 w-[1px] bg-[#ff3a1a] z-20 shadow-[0_0_10px_rgba(255,58,26,0.6)]"></div>
+        </div>
+
+        <!-- Days Selector -->
+        <div class="flex justify-between items-center px-8 mt-8 text-xs font-medium text-[#949494] z-20" id="days-container" style="opacity: 0;">
+            <span>Sun</span>
+            <span>Mon</span>
+            <div class="relative flex items-center justify-center w-9 h-9">
+                <div class="absolute inset-0 bg-[#ff3a1a] rounded-full -rotate-12 shadow-sm"></div>
+                <span class="relative z-10 text-black font-semibold">Tue</span>
+            </div>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+
+        <!-- Horizontal Scroll Cards -->
+        <div class="mt-8 flex gap-3 overflow-x-auto px-6 pb-24 snap-x z-20" style="scrollbar-width: none; -ms-overflow-style: none;" id="cards-container">
+            <!-- Card 1 -->
+            <div class="min-w-[260px] bg-[#d9d9d6] rounded-[24px] p-5 snap-center flex justify-between items-center relative overflow-hidden transition-transform duration-300 active:scale-95">
+                <div class="flex flex-col z-10">
+                    <div class="flex items-baseline gap-1 tracking-tighter">
+                        <span class="text-5xl font-light text-black">07</span>
+                        <span class="text-5xl font-light text-[#8a8a8a]">:15</span>
+                        <span class="text-xs font-semibold text-[#666] uppercase mb-4 ml-1">am</span>
+                    </div>
+                    <div class="mt-1 text-xs font-medium text-black">
+                        Deep Focus <span class="text-[#777] ml-1">· Ambient</span>
+                    </div>
+                </div>
+                <iconify-icon icon="solar:play-bold" class="text-2xl text-black z-10"></iconify-icon>
+            </div>
+            <!-- Card 2 -->
+            <div class="min-w-[260px] bg-[#d9d9d6] rounded-[24px] p-5 snap-center flex justify-between items-center relative overflow-hidden transition-transform duration-300 active:scale-95">
+                <div class="flex flex-col z-10">
+                    <div class="flex items-baseline gap-1 tracking-tighter">
+                        <span class="text-5xl font-light text-black">08</span>
+                        <span class="text-5xl font-light text-[#8a8a8a]">:30</span>
+                        <span class="text-xs font-semibold text-[#666] uppercase mb-4 ml-1">am</span>
+                    </div>
+                    <div class="mt-1 text-xs font-medium text-black">
+                        Daily Standup <span class="text-[#777] ml-1">· Meeting</span>
+                    </div>
+                </div>
+                <iconify-icon icon="solar:play-bold" class="text-2xl text-black z-10 opacity-30"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- Bottom Control Bar -->
+        <div class="absolute bottom-6 left-5 right-5 h-[72px] bg-[#141414] rounded-full flex items-center justify-between px-5 z-30 shadow-2xl">
+            <button class="w-10 h-10 flex items-center justify-center text-[#777] hover:text-white transition-colors">
+                <iconify-icon icon="solar:calendar-linear" class="text-xl"></iconify-icon>
+            </button>
+            
+            <!-- Scrolling Ruler Canvas -->
+            <div class="flex-1 h-full mx-2 relative overflow-hidden flex flex-col justify-end pb-3">
+                <canvas id="ruler-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                <!-- Central Indicator overlay -->
+                <div class="absolute inset-0 flex flex-col items-center justify-between pt-2 pb-[10px] pointer-events-none">
+                    <span class="text-white text-xs font-semibold drop-shadow-md">07:15</span>
+                    <div class="w-[1.5px] h-4 bg-[#ff3a1a] rounded-full"></div>
+                </div>
+            </div>
+
+            <button class="w-10 h-10 flex items-center justify-center text-[#777] hover:text-white transition-colors">
+                <iconify-icon icon="solar:add-circle-linear" class="text-xl"></iconify-icon>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- Intro Animations ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const animateIn = (id, delay) => {
+                const el = document.getElementById(id);
+                if(!el) return;
+                let start = null;
+                const duration = 800;
+                const easeOutQuart = t => 1 - (--t) * t * t * t;
+                
+                const step = (timestamp) => {
+                    if (!start) start = timestamp;
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    const ease = easeOutQuart(progress);
+                    
+                    el.style.opacity = ease;
+                    if(el.id === 'main-time-container') {
+                        el.style.transform = `translateY(${(1 - ease) * 20}px)`;
+                    }
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                setTimeout(() => window.requestAnimationFrame(step), delay);
+            };
+
+            animateIn('main-time-container', 100);
+            animateIn('barcode-container', 300);
+            animateIn('days-container', 500);
+            
+            // Cards stagger
+            const cards = document.getElementById('cards-container').children;
+            Array.from(cards).forEach((card, i) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateX(20px)';
+                setTimeout(() => {
+                    let start = null;
+                    const step = (timestamp) => {
+                        if (!start) start = timestamp;
+                        const p = Math.min((timestamp - start) / 600, 1);
+                        const e = 1 - Math.pow(1 - p, 4);
+                        card.style.opacity = e;
+                        card.style.transform = `translateX(${(1 - e) * 20}px)`;
+                        if (p < 1) window.requestAnimationFrame(step);
+                    };
+                    window.requestAnimationFrame(step);
+                }, 600 + (i * 150));
+            });
+        });
+
+        // --- WebGL Barcode Background ---
+        const initWebGL = () => {
+            const canvas = document.getElementById('webgl-barcode');
+            const gl = canvas.getContext('webgl', { antialias: false });
+            if (!gl) return;
+
+            const resize = () => {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width * window.devicePixelRatio;
+                canvas.height = rect.height * window.devicePixelRatio;
+                gl.viewport(0, 0, canvas.width, canvas.height);
+            };
+            window.addEventListener('resize', resize);
+            resize();
+
+            const vsSource = `
+                attribute vec2 position;
+                void main() { gl_Position = vec4(position, 0.0, 1.0); }
+            `;
+            const fsSource = `
+                precision mediump float;
+                uniform vec2 u_resolution;
+                uniform float u_time;
+
+                // Random function
+                float random(float x) {
+                    return fract(sin(x) * 43758.5453123);
+                }
+
+                void main() {
+                    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+                    
+                    // Slower scroll speed
+                    float scrollX = uv.x + u_time * 0.02; 
+                    
+                    // Density of bars
+                    float density = 150.0; 
+                    float index = floor(scrollX * density);
+                    
+                    // Generate random value per bar
+                    float rnd = random(index);
+                    
+                    // Create lines: threshold random value. 
+                    // Higher threshold = fewer lines
+                    float line = step(0.35, rnd);
+                    
+                    // Vary opacity based on random value, keep it subtle
+                    float alpha = line * rnd * 0.4;
+                    
+                    // Color is black/dark gray, relying on alpha for subtlety against bg
+                    gl_FragColor = vec4(0.0, 0.0, 0.0, alpha);
+                }
+            `;
+
+            const createShader = (type, source) => {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                return shader;
+            };
+
+            const program = gl.createProgram();
+            gl.attachShader(program, createShader(gl.VERTEX_SHADER, vsSource));
+            gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fsSource));
+            gl.linkProgram(program);
+            gl.useProgram(program);
+
+            const vertices = new Float32Array([-1,-1, 1,-1, -1,1, 1,1]);
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+            const posLoc = gl.getAttribLocation(program, 'position');
+            gl.enableVertexAttribArray(posLoc);
+            gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+            const timeLoc = gl.getUniformLocation(program, 'u_time');
+            const resLoc = gl.getUniformLocation(program, 'u_resolution');
+
+            const render = (time) => {
+                gl.uniform1f(timeLoc, time * 0.001);
+                gl.uniform2f(resLoc, canvas.width, canvas.height);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+            };
+            requestAnimationFrame(render);
+        };
+        initWebGL();
+
+        // --- 2D Canvas Scrolling Ruler ---
+        const initRuler = () => {
+            const canvas = document.getElementById('ruler-canvas');
+            const ctx = canvas.getContext('2d', { alpha: false }); // optimize
+            if(!ctx) return;
+
+            let w, h;
+            const resize = () => {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                w = rect.width;
+                h = rect.height;
+                canvas.width = w * window.devicePixelRatio;
+                canvas.height = h * window.devicePixelRatio;
+                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            };
+            window.addEventListener('resize', resize);
+            resize();
+
+            const tickSpacing = 6;
+            const scrollSpeed = 10; // pixels per second
+
+            let lastTime = 0;
+            let offset = 0;
+
+            const renderRuler = (time) => {
+                const deltaTime = (time - lastTime) / 1000;
+                lastTime = time;
+                
+                offset -= scrollSpeed * deltaTime;
+                if (offset <= -tickSpacing * 10) {
+                    offset += tickSpacing * 10;
+                }
+
+                // Fill background
+                ctx.fillStyle = '#141414';
+                ctx.fillRect(0, 0, w, h);
+
+                ctx.lineWidth = 1;
+                
+                const startX = offset % tickSpacing;
+                let tickCount = 0;
+
+                // Draw ticks
+                for (let x = startX; x < w; x += tickSpacing) {
+                    // Determine tick height based on interval (simulating 10 unit groups)
+                    const isMajor = Math.abs((x - offset) % (tickSpacing * 10)) < 0.1;
+                    const isMid = Math.abs((x - offset) % (tickSpacing * 5)) < 0.1 && !isMajor;
+                    
+                    let tickHeight = 6; // minor
+                    if (isMajor) tickHeight = 14;
+                    if (isMid) tickHeight = 10;
+
+                    // Draw from bottom up
+                    ctx.beginPath();
+                    ctx.moveTo(x, h - 10);
+                    ctx.lineTo(x, h - 10 - tickHeight);
+                    
+                    // Fade out edges
+                    const distFromCenter = Math.abs(x - w/2);
+                    const fadeStart = w * 0.2;
+                    let alpha = 1;
+                    if(distFromCenter > fadeStart) {
+                        alpha = Math.max(0, 1 - (distFromCenter - fadeStart) / (w/2 - fadeStart));
+                    }
+                    
+                    ctx.strokeStyle = `rgba(119, 119, 119, ${alpha * (isMajor ? 0.8 : 0.4)})`;
+                    ctx.stroke();
+                }
+
+                requestAnimationFrame(renderRuler);
+            };
+            requestAnimationFrame((t) => { lastTime = t; renderRuler(t); });
+        };
+        initRuler();
+
+    </script>
+</body>
+</html>
