@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #10100f;
+  --color-paper: #f2efe6;
+  --color-muted: #b8b4a8;
+  --color-line: rgb(255 255 255 / 0.22);
+  --color-line-dark: rgb(16 16 15 / 0.18);
+  --color-chapter-1: #8a96a3;
+  --color-chapter-2: #a89fc4;
+  --color-chapter-3: #9aab7a;
+  --color-chapter-4: #e4d5bc;
+  --color-signal: #e8a54b;
+  --color-signal-ink: #1a1408;
+
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .animate-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+/*
+  Scroll reveal: hide with opacity until .animate is added.
+  Do NOT use animation-play-state:paused + fill-mode:both — that leaves
+  copy stuck invisible when the observer doesn't rebind (e.g. locale switch).
+*/
+@layer utilities {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .animate-on-scroll.animate {
+    animation-name: reveal-up;
+    animation-duration: 0.65s;
+    animation-timing-function: var(--ease-editorial);
+    animation-fill-mode: both;
+    /* animation-delay can be set inline per element */
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mask-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(8% 0 0 0);
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1);
+  }
+}
