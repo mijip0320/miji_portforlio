@@ -1,8 +1,14 @@
 # miji_portforlio
 
-박미지(Miji Park) 프론트엔드 포트폴리오 사이트 + Cursor 스킬 워크스페이스입니다.
+프론트엔드 포트폴리오 사이트와 Cursor 스킬 워크스페이스입니다.
 
-## 포트폴리오 사이트 실행
+## 라이브
+
+[https://mijip0320.github.io/miji_portforlio/](https://mijip0320.github.io/miji_portforlio/)
+
+`main`에 push하면 GitHub Actions가 `portfolio/`를 빌드해 Pages에 배포합니다.
+
+## 로컬 실행
 
 ```bash
 cd portfolio
@@ -10,19 +16,7 @@ npm install
 npm run dev
 ```
 
-→ `http://localhost:5173`
-
-## 배포 (GitHub Pages)
-
-라이브: [https://mijip0320.github.io/miji_portforlio/](https://mijip0320.github.io/miji_portforlio/)
-
-`main`에 push하면 Actions가 `portfolio/`를 빌드해 Pages에 배포합니다.
-
-최초 1회만 GitHub에서 활성화:
-
-1. 저장소 **Settings → Pages**
-2. **Source**를 **GitHub Actions**로 선택
-3. 저장소가 **Public**인지 확인 (무료 Pages 요건)
+→ [http://localhost:5173](http://localhost:5173)
 
 ## 구조
 
@@ -31,7 +25,7 @@ miji_portforlio/
   portfolio/              # Vite + React + Tailwind 포트폴리오 앱
   Skills/                 # MengTo/Skills 스냅샷
   .cursor/skills/         # Cursor가 읽는 스킬 심볼릭 링크
-  docs/                   # 포트폴리오 계획·스펙
+  docs/                   # 로컬 계획·스펙 (git 제외)
   scripts/link-skills.sh  # 스킬 링크 재생성
   AGENTS.md               # 에이전트 작업 규칙
 ```
@@ -45,22 +39,12 @@ cd miji_portforlio
 cd portfolio && npm install && npm run dev
 ```
 
-Cursor에서 **이 폴더를 워크스페이스로 열기**.
-
-## 포트폴리오 계획
-
-- `docs/portfolio-site-plan.md`
+Cursor에서 **이 폴더를 워크스페이스로** 엽니다.
 
 ## 스킬 업데이트 (선택)
-
-upstream을 새로 받으려면:
 
 ```bash
 rm -rf Skills
 git clone --depth 1 https://github.com/MengTo/Skills.git Skills
 ./scripts/link-skills.sh
 ```
-
-## Contact
-
-- Email: devmail1012@gmail.com
