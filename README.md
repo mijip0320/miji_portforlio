@@ -12,6 +12,18 @@ npm run dev
 
 → `http://localhost:5173`
 
+## 배포 (GitHub Pages)
+
+라이브: [https://mijip0320.github.io/miji_portforlio/](https://mijip0320.github.io/miji_portforlio/)
+
+`main`에 push하면 Actions가 `portfolio/`를 빌드해 Pages에 배포합니다.
+
+최초 1회만 GitHub에서 활성화:
+
+1. 저장소 **Settings → Pages**
+2. **Source**를 **GitHub Actions**로 선택
+3. 저장소가 **Public**인지 확인 (무료 Pages 요건)
+
 ## 구조
 
 ```text
